@@ -1,37 +1,61 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/aluna112/CSE405/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aluna112/CSE405/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<html>
+    <head>
+        <title>Background Color Changer: Home</title>
+        <h1 style = "text-align: center";>Click the button</h1>
+        <style>
+            #buttons {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                height: 1000px;
+                text-align: center;
+            }
+            .button {
+                width: 90px;
+                height: 50px;
+                border-radius: 10px;
+                border: 0;
+                background-color: #A0B3C2;
+                margin: 10px;
+            }
+            #overlay {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background-color: tan;
+                cursor: pointer;
+            }
+            .overlaytext {
+                font-size: 100px;
+                font-family: "Arial";
+            }
+        </style>
+    </head>
+    <body id = "body"; style = "background-color: tan; overflow:hidden">
+        <div id = "buttons">
+            <div id = "overlay"; onclick = "off()">
+                <p class = "overlaytext">Start</p>
+            </div>
+            <button onclick = "newcolor()"; class = "button">Click to change color</button></a>
+            <button onclick = "on()"; class = "button">Quit</button>
+        </div>
+        <script>
+            var colors = ["red", "blue", "green", "tan"];
+            var colorIndex = 0;
+            function newcolor() {
+                var col = document.getElementById("body");
+                if(colorIndex >= colors.length) {
+                    colorIndex = 0;
+                }
+                col.style.backgroundColor = colors[colorIndex];
+                colorIndex++;
+            }
+            function on() {
+                document.getElementById("overlay").style.display = "block";
+            }
+            function off() {
+                document.getElementById("overlay").style.display = "none";
+            }
+        </script>
+    </body>
+</html>
