@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #container {
+                width: 1000px;
+                height: 600px;
+                margin: 20px auto;
+            }
+            #calculator {
+                width: 350px;
+                height: 690px;
+                background-color: black;
+                margin: 0 auto;
+                position: relative;
+                border-radius: 35px;
+            }
+            #result {
+                height: 50px;
+            }
+            #output {
+                text-align: right;
+                height: 80px;
+                margin: 0px 25px;
+                padding-top: 150px;
+                font-size: 70px;
+                color: #FFFFFF;
+            }
+            .clears, .operator, .number {
+                width: 70px;
+                height: 70px;
+                margin: 8px;
+                float: left;
+                border-radius: 50%;
+                border-width: 0;
+                font-size: 35px;
+                color: white;
+            }
+            .number {
+                background-color: #494848;
+            }
+            .operator {
+                background-color: #FC8A17;
+            }
+            .clears {
+                background-color: #A7AFB2;
+                color: black;
+                font-size: 27px;
+            }
+            .operator:active {
+                background-color: white;
+                color: #FC8A17
+            }
+            .number:active {
+                background-color: #B4B4B4;
+            }
+            .clears:active {
+                background-color: #D4D4D4;
+            }
+            button:nth-child(17) {
+                width: 155px;
+                border-radius: 50px;
+                padding-right: 90px;
+            }
+            .goHome {
+                height:5px;
+                width:140px;
+                background-color: white;
+                border-radius: 20%;
+                margin: 0 auto;
+                display: block;
+            }
+            .blank {
+                height:20px;
+                width:140px;
+                background-color: black;
+                border-color: black;
+                border-width: 0;
+                border-radius: 20%;
+                margin: 0 auto;
+                display: block;
+            }
+        </style>
+        <title>Calculator</title>
+    </head>
+    <body style = "Background-color: tan">
+        <div id = "hello"></div>
+        <h1 style = "color: black; font-size: 50px; text-align: center">CALCULATOR</h1>
+        <p style = "text-align:center">iPhone Calculator</p>
+        <hr />
+        <div id = "containter">
+            <div id = "calculator">
+                <div id "result">
+                    <div id = "output">
+                        <p id = "output-value"></p>
+                    </div>
+                </div>
+                <div id = "keyboard">
+                    <button onclick = "clears()" class = "clears" >AC</button>
+                    <button onclick = "plusOrMinus()" class = "clears" >+/-</button>
+                    <button onclick = "percent()" class = "clears" >%</button>
+                    <button onclick = "divide()" class = "operator" id = "divide">&#247;</button>
+                    <button onclick = "seven()" class = "number">7</button>
+                    <button onclick = "eight()" class = "number">8</button>
+                    <button onclick = "nine()" class = "number">9</button>
+                    <button class = "operator">&times;</button>
+                    <button onclick = "four()" class = "number">4</button>
+                    <button onclick = "five()" class = "number">5</button>
+                    <button onclick = "six()" class = "number">6</button>
+                    <button style = "padding-bottom:30px" class = "operator">_</button>
+                    <button onclick = "one()" class = "number">1</button>
+                    <button onclick = "two()" class = "number">2</button>
+                    <button onclick = "three()" class = "number">3</button>
+                    <button class = "operator">+</button>
+                    <button onclick = "zero()" class = "number">0</button>
+                    <button onclick = "dot()" class = "number">.</button>
+                    <button onclick = "equals()" class = "operator">=</button>
+                </div>
+                <button class = "blank"></button>
+                <button class = "goHome"></button>
+            </div>
+        </div>
+        <script>
+            var starter = "0";
+            document.getElementById("output").innerHTML = starter;
+            firstNumber = null;
+            waiting = false;
+            function clears() {
+                if (document.getElementById("output").innerHTML != "0") {
+                    document.getElementById("output").innerHTML = "0";
+                }
+                else {
+                    ;
+                }
+            }
+            function plusOrMinus() {
+                if (document.getElementById("output").innerHTML != "0") {
+                    var number = document.getElementById("output").innerHTML;
+                    newnumber = number * -1;
+                    document.getElementById("output").innerHTML = newnumber;
+                }
+                else if (document.getElementById("output").innerHTML == "0") {
+                    document.getElementById("output").innerHTML = "-0";
+                }
+            }
+            function percent() {
+                var newnumber = document.getElementById("output").innerHTML;
+                pnumber = newnumber / 100;
+                document.getElementById("output").innerHTML = pnumber;
+            }
+//DIVIDE
+            function divide() {
+                var divideNum = document.getElementById("output").innerHTML;
+                holder(divideNum);
+                document.getElementById("output").innerHTML = "0";
+            }
+            function holder(divideNum) {
+                var holder = divideNum;
+                console.log(divideNum);
+            }
+            function seven() {
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var seven = document.getElementById("output").innerHTML;
+                        var number7 = seven + "7";
+                        document.getElementById("output").innerHTML = number7;
+                    }
+                    else {
+                        var seven = document.getElementById("output").innerHTML;
+                        var number7 = seven + "7";
+                        document.getElementById("output").innerHTML = number7;
+                    }
+                }
+            }
+            function eight() {
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var eight = document.getElementById("output").innerHTML;
+                        var number8 = eight + "8";
+                        document.getElementById("output").innerHTML = number8;
+                    }
+                    else {
+                        var eight = document.getElementById("output").innerHTML;
+                        var number8 = eight + "8";
+                        document.getElementById("output").innerHTML = number8;
+                    }
+                }
+            }
+            function nine() {
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var nine = document.getElementById("output").innerHTML;
+                        var number9 = nine + "9";
+                        document.getElementById("output").innerHTML = number9;
+                    }
+                    else {
+                        var nine = document.getElementById("output").innerHTML;
+                        var number9 = nine + "9";
+                        document.getElementById("output").innerHTML = number9;
+                    }
+                }
+            }
+            function four() {
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var four = document.getElementById("output").innerHTML;
+                        var number4 = four + "4";
+                        document.getElementById("output").innerHTML = number4;
+                    }
+                    else {
+                        var four = document.getElementById("output").innerHTML;
+                        var number4 = four + "4";
+                        document.getElementById("output").innerHTML = number4;
+                    }
+                }
+            }
+            function five() {
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var five = document.getElementById("output").innerHTML;
+                        var number5 = five + "5";
+                        document.getElementById("output").innerHTML = number5;
+                    }
+                    else {
+                        var five = document.getElementById("output").innerHTML;
+                        var number5 = five + "5";
+                        document.getElementById("output").innerHTML = number5;
+                    }
+                }
+            }
+            function six() {
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var six = document.getElementById("output").innerHTML;
+                        var number6 = six + "6";
+                        document.getElementById("output").innerHTML = number6;
+                    }
+                    else {
+                        var six = document.getElementById("output").innerHTML;
+                        var number6 = six + "6";
+                        document.getElementById("output").innerHTML = number6;
+                    }
+                }
+            }
+            function one() {
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var one = document.getElementById("output").innerHTML;
+                        var number1 = one + "1";
+                        document.getElementById("output").innerHTML = number1;
+                    }
+                    else {
+                        var one = document.getElementById("output").innerHTML;
+                        var number1 = one + "1";
+                        document.getElementById("output").innerHTML = number1;
+                    }
+                }
+            }
+            function two() {
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var two = document.getElementById("output").innerHTML;
+                        var number2 = two + "2";
+                        document.getElementById("output").innerHTML = number2;
+                    }
+                    else {
+                        var two = document.getElementById("output").innerHTML;
+                        var number2 = two + "2";
+                        document.getElementById("output").innerHTML = number2;
+                    }
+                }
+            }
+            function three() {
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var three = document.getElementById("output").innerHTML;
+                        var number3 = three + "3";
+                        document.getElementById("output").innerHTML = number3;
+                    }
+                    else {
+                        var three = document.getElementById("output").innerHTML;
+                        var number3 = three + "3";
+                        document.getElementById("output").innerHTML = number3;
+                    }
+                }
+            }
+            function zero() {
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML != "0") {
+                        var zero = document.getElementById("output").innerHTML;
+                        var number0 = zero + "0";
+                        document.getElementById("output").innerHTML = number0;
+                    }
+                }
+            }
+            function dot() {
+                var dot = document.getElementById("output").innerHTML;
+                if (dot.includes(".") == false) {
+                    var dot2 = document.getElementById("output").innerHTML;
+                    var newdot = dot2 + ".";
+                    document.getElementById("output").innerHTML = newdot;
+                }
+            }
+            function equals(holder) {
+                console.log(holder);
+                var secondNumber = document.getElementById("output").innerHTML;
+                var result = holder / secondNumber;
+                document.getElementById("output").innerHTML = result;
+                console.log(secondNumber);
+                console.log(result);
+
+            }
+        </script>
+    </body>
+</html>
