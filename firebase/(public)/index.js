@@ -1,7 +1,7 @@
-const postlist = document.querySelector(".post");
+const postlist = document.getElementById("postss").innerHTML;
 
 const setupPosts = (data) => {
-    let html = "";
+    let html = '';
     data.forEach(doc => {
         const post = doc.data();
         const li = `
