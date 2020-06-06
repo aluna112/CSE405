@@ -1,6 +1,20 @@
-db.collection("posts").get().then(snapshot => {
-    setupPosts(snapshot.docs);
-});
+const postList = document.querySelector('#postss');
+const setupPosts = (data) => {
+  if (data.length) {
+    let html = '';
+    data.forEach(doc => {
+      const post = doc.data();
+      const li = `
+        <button class = "collapsible">${post.title}</button>
+        <div class = "ccontent">
+            <p>${post.content}</p>
+        </div>
+      `;
+      html += li;
+    });
+    postList.innerHTML = html;
+  }
+};
 
 auth.onAuthStateChanged(user => {
     if (user) {
@@ -15,6 +29,9 @@ auth.onAuthStateChanged(user => {
                 window.location.reload();
             }
         }
+        db.collection('posts').get().then(snapshot => {
+          setupPosts(snapshot.docs);
+        });
     } else {
         console.log("user logged out");
         document.getElementById("Instructions").style.display = "none";
@@ -27,9 +44,29 @@ auth.onAuthStateChanged(user => {
                 window.location.reload();
             }
         }
+        setupPosts([]);
     }
 });
 
+const createForm = document.querySelector('#create-form');
+createForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('posts').add({
+        title: createForm.title.value,
+        content: createForm.content.value
+    }).then(() => {
+        const modal = document.querySelector('#modal-create');
+        document.getElementById('modal-create').style.display='none';
+        createForm.reset();
+    }).catch(err => {
+        console.log(err.message);
+    });
+    window.setTimeout(reload, 500);
+    function reload() {
+        location.reload();
+    }
+});
+                            
 const signupForm = document.querySelector("#signup-form");
 signupForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -79,4 +116,5 @@ loginForm.addEventListener("submit", (e) => {
         location.reload();
     });
 });
+
 

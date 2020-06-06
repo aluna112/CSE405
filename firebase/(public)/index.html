@@ -36,6 +36,7 @@
             }
             body {
                 font-family: Arial, Helvetica, sans-serif;
+                background-image: linear-gradient(white, lightblue);
             }
             * {
                 box-sizing: border-box;
@@ -149,11 +150,7 @@
                 clear: both;
                 display: table;
             }
-
-/*          @media screen and (max-width: 300px) {
-                .cancelbtn, .signupbtn .login{
-                 width: 100%;
-              }*/
+        
             .collapsible {
               background-color: #777;
               color: white;
@@ -182,7 +179,7 @@
               content: "\2212";
             }
 
-            .content {
+            .ccontent {
               padding: 0 18px;
               max-height: 0;
               overflow: hidden;
@@ -195,19 +192,19 @@
         <nav class="z-depth-0 grey lighten-4">
           <div class="nav-wrapper container">
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li class="logged-in" id = "logout-button">
+                <li id = "logout-button">
                   <a href="#" class="grey-text" id="logout">Logout</a>
                 </li>
-                <li class="logged-in" id = "account-button">
+                <li id = "account-button">
                     <a href="#" class="grey-text modal-trigger" onclick = "document.getElementById('account').style.display = 'block'" id = "accounts">Account</a>
                 </li>
-                <li class="logged-in" id = "create-post-button">
+                <li id = "create-post-button">
                   <a href="#" class="grey-text modal-trigger" onclick="document.getElementById('modal-create').style.display='block'">Create Post</a>
                 </li>
-                <li class="logged-out" onclick="document.getElementById('id02').style.display='block'" style="width:auto;" id = "login-button">
+                <li onclick="document.getElementById('id02').style.display='block'" style="width:auto;" id = "login-button">
                   <a href="#" class="grey-text modal-trigger">Login</a>
                 </li>
-                <li class="logged-out" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id = "signup-button">
+                <li onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id = "signup-button">
                   <a href="#" class="grey-text modal-trigger">Sign up</a>
                 </li>
             </ul>
@@ -285,7 +282,7 @@
         <div id="account" class="modal">
               <span onclick="document.getElementById('account').style.display='none'" class="close" title="Close Modal">&times;</span>
             <div class="container2">
-                <div id = "acount-info">
+                <div id = "account-info">
                 </div>
               <button type="button" onclick="document.getElementById('account').style.display='none'" class="cancelbtn2">Close</button>
             </div>
@@ -296,9 +293,10 @@
         <div id = "Instructions">
             <p>How to post:</p>
             <button class="collapsible">Click me for instructions</button>
-            <div class="content">
+            <div class="ccontent">
                 <p>1. Click on "Create Post" on the upper right corner. </br> 2. Create title and content then click post</p>
             </div>
+            <br></br>
         </div>
         
         <div class = "post" id = "postss">
@@ -307,10 +305,7 @@
             <div class="content">
                 <p>Testing number 3</p>
             </div>
-            <button class="collapsible">Open Section 3</button>
-            <div class="content">
-                <p>Testing number 4</p>
-            </div> -->
+-->
         </div>
         
         
